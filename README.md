@@ -1,4 +1,4 @@
-# FlixBook
+# WeatherVane
 
 Simple weather app created all in Kotlin.
 
