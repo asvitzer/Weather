@@ -21,7 +21,7 @@ ext {
     compileSdkVersion = 26
     versionCode = 1
     versionName = "1.0"
-    appcompat_version = "27.0.2"
+    support_version = "27.0.2"
     constraint_layout_version = "1.0.2"
     junit_version = "4.12"
     test_runner_version = "1.0.1"
