@@ -48,6 +48,9 @@ captures/
 .idea/scopes/scope_settings.xml
 .idea/vcs.xml
 .idea/sonarlint*
+.idea/caches/
+.idea/codeStyles/
+
 
 # Keystore files
 *.jks
