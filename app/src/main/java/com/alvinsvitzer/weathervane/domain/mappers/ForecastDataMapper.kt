@@ -2,19 +2,19 @@ package com.alvinsvitzer.weathervane.domain.mappers
 
 import com.alvinsvitzer.weathervane.data.Forecast
 import com.alvinsvitzer.weathervane.data.ForecastResult
-import com.alvinsvitzer.weathervane.domain.model.ForecastList
+import com.alvinsvitzer.weathervane.domain.model.ForecastListDomain
 import java.text.DateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
-import com.alvinsvitzer.weathervane.domain.model.Forecast as ModelForecast
+import com.alvinsvitzer.weathervane.domain.model.ForecastDomain as ModelForecast
 
 /**
  * Created by alvin.svitzer on 08/02/2018.
  */
  class ForecastDataMapper {
 
-     fun convertFromDataModel(forecast: ForecastResult): ForecastList {
-         return ForecastList(forecast.city.name, forecast.city.country, convertForecastListToDomain(forecast.list))
+     fun convertFromDataModel(forecast: ForecastResult): ForecastListDomain {
+         return ForecastListDomain(forecast.city.name, forecast.city.country, convertForecastListToDomain(forecast.list))
          }
 
      private fun convertForecastListToDomain(list: List<Forecast>): List<ModelForecast> {

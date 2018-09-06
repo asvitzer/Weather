@@ -2,6 +2,7 @@ package com.alvinsvitzer.weathervane.network
 
 import android.util.Log
 import com.alvinsvitzer.weathervane.data.ForecastResult
+import com.google.gson.Gson
 import java.net.URL
 
 /**
@@ -15,7 +16,7 @@ class ForecastRequest(val zipCode: String) {
         private val COMPLETE_URL = "$URL&APPID=$APP_ID&q="
     }
 
-    fun run() {
+    fun run(): ForecastResult {
         //readText not good for huge responses. Change this if networking requests increase
         val forecastJsonStr = URL(COMPLETE_URL + zipCode).readText()
         Log.d(javaClass.simpleName, forecastJsonStr)
