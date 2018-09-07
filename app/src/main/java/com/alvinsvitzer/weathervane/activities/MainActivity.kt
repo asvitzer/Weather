@@ -8,6 +8,7 @@ import com.alvinsvitzer.weathervane.R
 import com.alvinsvitzer.weathervane.adapters.ForecastListAdapter
 import com.alvinsvitzer.weathervane.domain.commands.RequestForecastCommand
 import com.alvinsvitzer.weathervane.network.ForecastRequest
+import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.Android
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.longToast
@@ -20,14 +21,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val forecastList = findViewById<RecyclerView>(R.id.forecast_recycler_view)
-        forecastList.layoutManager = LinearLayoutManager(this)
+        forecast_recycler_view.layoutManager = LinearLayoutManager(this)
 
         doAsync {
 
             val result = RequestForecastCommand("94043").execute()
             uiThread {
-                forecastList.adapter = ForecastListAdapter(result)
+                forecast_recycler_view.adapter = ForecastListAdapter(result)
             }
         }
     }
