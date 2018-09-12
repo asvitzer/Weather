@@ -7,12 +7,10 @@ import android.support.v7.widget.RecyclerView
 import com.alvinsvitzer.weathervane.R
 import com.alvinsvitzer.weathervane.adapters.ForecastListAdapter
 import com.alvinsvitzer.weathervane.domain.commands.RequestForecastCommand
+import com.alvinsvitzer.weathervane.domain.model.ForecastDomain
 import com.alvinsvitzer.weathervane.network.ForecastRequest
 import kotlinx.android.synthetic.main.activity_main.*
-import org.jetbrains.anko.Android
-import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.longToast
-import org.jetbrains.anko.uiThread
+import org.jetbrains.anko.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -27,7 +25,12 @@ class MainActivity : AppCompatActivity() {
 
             val result = RequestForecastCommand("94043").execute()
             uiThread {
-                forecast_recycler_view.adapter = ForecastListAdapter(result)
+                forecast_recycler_view.adapter = ForecastListAdapter(result, object: ForecastListAdapter.OnItemClickListener{
+                    override fun invoke(forecast: ForecastDomain) {
+                        toast(forecast.date)
+                    }
+
+                })
             }
         }
     }

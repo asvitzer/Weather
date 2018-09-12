@@ -15,4 +15,4 @@ data class ForecastListDomain(val city: String, val country: String,
 }
 
 data class ForecastDomain(val date: String, val description: String, val high: Int,
-                          val low: Int)
+                          val low: Int, val iconUrl: String)
