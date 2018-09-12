@@ -25,13 +25,11 @@ class MainActivity : AppCompatActivity() {
 
             val result = RequestForecastCommand("94043").execute()
             uiThread {
-                forecast_recycler_view.adapter = ForecastListAdapter(result, object: ForecastListAdapter.OnItemClickListener{
-                    override fun invoke(forecast: ForecastDomain) {
-                        toast(forecast.date)
-                    }
-
-                })
+                val adapter = ForecastListAdapter(result) { toast(it.date) }
+                forecast_recycler_view.adapter = adapter
             }
         }
     }
 }
+
+
