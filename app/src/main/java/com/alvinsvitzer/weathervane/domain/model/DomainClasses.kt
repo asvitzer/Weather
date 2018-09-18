@@ -11,7 +11,7 @@ data class ForecastListDomain(val city: String, val country: String,
     val size: Int
         get() = dailyForecastDomain.size
 
-    operator fun get(position: Int): ForecastDomain = dailyForecastDomain[position]
+    operator fun get(position: Int) = dailyForecastDomain[position]
 }
 
 data class ForecastDomain(val date: String, val description: String, val high: Int,

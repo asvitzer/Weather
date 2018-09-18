@@ -34,5 +34,5 @@ import com.alvinsvitzer.weathervane.domain.model.ForecastDomain as ModelForecast
          return df.format(date)
          }
 
-    private fun generateIconUrl(iconCode: String): String = "“http://openweathermap.org/img/w/$iconCode.png”\n"
+    private fun generateIconUrl(iconCode: String) = "“http://openweathermap.org/img/w/$iconCode.png”\n"
      }
