@@ -10,7 +10,7 @@ import com.alvinsvitzer.weathervane.R
 import com.alvinsvitzer.weathervane.domain.model.ForecastDomain
 import com.alvinsvitzer.weathervane.domain.model.ForecastListDomain
 import com.squareup.picasso.Picasso
-import org.jetbrains.anko.find
+import kotlinx.android.synthetic.main.forecast_item_layout.view.*
 
 /**
  * Created by alvin.svitzer on 02/02/2018.
@@ -33,19 +33,13 @@ class ForecastListAdapter(private val weekForecast: ForecastListDomain,
     class ViewHolder(view: View, private val itemClick: (ForecastDomain) -> Unit)
         : RecyclerView.ViewHolder(view) {
 
-        private val iconView = view.find<ImageView>(R.id.icon)
-        private val dateView = view.find<TextView>(R.id.date)
-        private val descriptionView = view.find<TextView>(R.id.description)
-        private val maxTemperatureView = view.find<TextView>(R.id.maxTemperature)
-        private val minTemperatureView = view.find<TextView>(R.id.minTemperature)
-
         fun bindForecast(forecast: ForecastDomain) {
             with(forecast) {
-                Picasso.get().load(iconUrl).into(iconView)
-                dateView.text = date
-                descriptionView.text = description
-                maxTemperatureView.text = "${high}º"
-                minTemperatureView.text = "${low}º"
+                Picasso.get().load(iconUrl).into(itemView.icon)
+                itemView.date.text = date
+                itemView.description.text = description
+                itemView.maxTemperature.text = "${high}º"
+                itemView.minTemperature.text = "${low}º"
                 itemView.setOnClickListener { itemClick(this) }
             }
         }
